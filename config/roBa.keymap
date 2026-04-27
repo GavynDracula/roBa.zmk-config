@@ -102,7 +102,7 @@
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
-        function_scroll_layer {
+        number_mouse_layer {
             bindings = <
                 &kp PSCRN        &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT                                              &kp BSLH         &kp N7           &kp N8           &kp N9           &kp N0
                 &caps_word       &mkp LCLK        &mo FUNC         &mkp RCLK        &mkp MCLK        &none             &none               &kp GRAVE        &kp N4           &kp N5           &kp N6           &kp APOS
