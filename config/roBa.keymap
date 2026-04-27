@@ -23,8 +23,9 @@
 };
 
 &trackball {
-    automouse-layer = <4>;
-    scroll-layers = <5>;
+    scroll-layers = <FUNC>;
+    snipe-layers = <NPAD>;
+    // automouse-layer = <4>;
 
     // arrows {
     //     layers = <3>;
