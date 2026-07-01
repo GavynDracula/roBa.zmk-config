@@ -134,9 +134,9 @@
         mhxy_singlehand_layer {
             bindings = <
                 &none            &none            &none            &none            &none                                                  &kp LA(T)        &kp LA(Q)        &kp LA(A)        &kp LA(D)        &kp LA(F)
-                &none            &none            &none            &none            &none            &none             &kp LA(EQUAL)       &kp TAB          &mkp LCLK        &mkp RCLK        &kp LC(TAB)      &mt LA(H) F9
+                &none            &none            &none            &none            &none            &none             &kp LA(EQUAL)       &kp LA(G)        &mkp LCLK        &mkp RCLK        &kp LC(TAB)      &mt LA(H) F9
                 &none            &none            &none            &none            &none            &none             &kp LA(R)           &kp LA(C)        &kp LA(S)        &kp LA(X)        &kp LA(E)        &kp LA(W)
-                &none            &none            &none            &none            &none            &none             &kp LCTRL           &kp LA(G)                                                           &kp LA(O)
+                &none            &none            &none            &none            &none            &none             &kp LCTRL           &kp TAB                                                             &kp LA(O)
             >;
         };
     };
