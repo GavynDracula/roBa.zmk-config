@@ -3,13 +3,15 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/mouse.h>
 
 #define DFLT 0
 #define NUMS 1
 #define FUNC 2
 #define NPAD 3
 #define DCTL 4
-#define MHXY 5
+#define MHXY_TOP 5
+#define MHXY_DOWN 6
 
 &mt {
    flavor = "tap-preferred";
@@ -56,28 +58,77 @@
         };
 
         mhxy_mode {
-            bindings = <&tog MHXY>;
+            bindings = <&tog MHXY_TOP>;
             key-positions = <16 28>;
         };
     };
 
     macros {
-        to_layer_0: to_layer_0 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "TO_LAYER_0";
+        mhxy_cast: mhxy_cast {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <60>;
+            tap-ms = <60>;
+            bindings
+                = <&kp LA(Q) &kp LA(Q) &kp LC(TAB)>
+                , <&kp LA(Q) &kp LA(Q) &kp LC(TAB)>
+                , <&kp LA(Q) &kp LA(Q) &kp LC(TAB)>
+                , <&kp LA(Q) &kp LA(Q) &kp LC(TAB)>
+                , <&kp LA(Q) &kp LA(Q) &kp LC(TAB)>
+                ;
         };
-    };
 
-    behaviors {
-        lt_to_layer_0: lt_to_layer_0 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
-            bindings = <&mo>, <&to_layer_0>;
+        mhxy_defence: mhxy_defence {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <60>;
+            tap-ms = <60>;
+            bindings
+                = <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                ;
+        };
 
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
+        mhxy_pcast: mhxy_pcast {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <60>;
+            tap-ms = <60>;
+            bindings
+                = <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(Q) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
+                , <&kp LA(Q) &kp LA(D) &kp LC(TAB)>
+                ;
+        };
+
+        mhxy_mount: mhxy_mount {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <60>;
+            tap-ms = <60>;
+            bindings
+                = <&kp F6 &kp LC(TAB)>
+                , <&kp F6 &kp LC(TAB)>
+                , <&kp F6 &kp LC(TAB)>
+                , <&kp F6 &kp LC(TAB)>
+                , <&kp F6 &kp LC(TAB)>
+                ;
+        };
+
+        mhxy_alta: mhxy_alta {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <60>;
+            bindings
+                = <&macro_press &kp LA(A)>
+                , <&mkp LCLK, &mkp LCLK>
+                , <&macro_release &kp LA(A)>
+                ;
         };
     };
 
@@ -131,12 +182,21 @@
             >;
         };
          
-        mhxy_singlehand_layer {
+        mhxy_top_layer {
             bindings = <
                 &none            &none            &none            &none            &none                                                  &kp LA(T)        &kp LA(Q)        &kp LA(A)        &kp LA(D)        &kp LA(F)
-                &none            &none            &none            &none            &none            &none             &kp LA(EQUAL)       &kp LA(G)        &mkp LCLK        &mkp RCLK        &kp LC(TAB)      &mt LA(H) F9
+                &none            &none            &none            &none            &none            &none             &kp LA(I)           &kp LA(G)        &mkp LCLK        &mkp RCLK        &kp LC(TAB)      &mt LA(H) F9
                 &none            &none            &none            &none            &none            &none             &kp LA(R)           &kp LA(C)        &kp LA(S)        &kp LA(X)        &kp LA(E)        &kp LA(W)
-                &none            &none            &none            &none            &none            &none             &kp LCTRL           &kp TAB                                                             &kp LA(O)
+                &none            &none            &none            &none            &none            &none             &kp LCTRL           &lt MHXY_DOWN TAB                                                   &kp LA(O)
+            >;
+        };
+         
+        mhxy_down_layer {
+            bindings = <
+                &none            &none            &none            &none            &none                                                  &kp F1           &kp F2           &kp F3           &kp F4           &kp F5
+                &none            &none            &none            &none            &none            &none             &mhxy_pcast         &mhxy_mount      &msc SCRL_UP     &msc SCRL_DOWN   &mhxy_cast       &mhxy_defence
+                &none            &none            &none            &none            &none            &none             &mhxy_alta          &kp F6           &kp F7           &kp F8           &kp LA(F1)       &kp LA(F2)
+                &none            &none            &none            &none            &none            &none             &none               &none                                                               &kp LA(F3)
             >;
         };
     };
