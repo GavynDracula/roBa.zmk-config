@@ -67,8 +67,8 @@
         mhxy_cast: mhxy_cast {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
+            wait-ms = <50>;
+            tap-ms = <50>;
             bindings
                 = <&kp LA(Q) &kp LA(Q) &kp LC(TAB)>
                 , <&kp LA(Q) &kp LA(Q) &kp LC(TAB)>
@@ -81,8 +81,8 @@
         mhxy_defence: mhxy_defence {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
+            wait-ms = <50>;
+            tap-ms = <50>;
             bindings
                 = <&kp LA(D) &kp LA(D) &kp LC(TAB)>
                 , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
@@ -95,8 +95,8 @@
         mhxy_pcast: mhxy_pcast {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
+            wait-ms = <50>;
+            tap-ms = <50>;
             bindings
                 = <&kp LA(D) &kp LA(D) &kp LC(TAB)>
                 , <&kp LA(D) &kp LA(D) &kp LC(TAB)>
@@ -109,8 +109,8 @@
         mhxy_mount: mhxy_mount {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
+            wait-ms = <50>;
+            tap-ms = <50>;
             bindings
                 = <&kp F6 &kp LC(TAB)>
                 , <&kp F6 &kp LC(TAB)>
@@ -123,8 +123,8 @@
         mhxy_alta: mhxy_alta {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
+            wait-ms = <50>;
+            tap-ms = <50>;
             bindings
                 = <&kp LA(A) &mkp LCLK>
                 , <&kp LA(A) &mkp LCLK>
