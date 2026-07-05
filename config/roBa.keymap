@@ -126,7 +126,7 @@
             wait-ms = <60>;
             bindings
                 = <&macro_press &kp LA(A)>
-                , <&mkp LCLK, &mkp LCLK>
+                , <&mkp LCLK &mkp LCLK>
                 , <&macro_release &kp LA(A)>
                 ;
         };
